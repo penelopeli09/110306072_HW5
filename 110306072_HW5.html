@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 5</title>
+</head>
+<body onkeydown="enter()">
+    <div>
+        <img src="die1.png" id="dice1">
+        <img src="die1.png" id="dice2">
+        <img src="die1.png" id="dice3">
+        <img src="die1.png" id="dice4">
+        <img src="die1.png" id="dice5">
+        <img src="die1.png" id="dice6">
+    </div>
+    <div>
+        <img src="die1.png" id="dice7">
+        <img src="die1.png" id="dice8">
+        <img src="die1.png" id="dice9">
+        <img src="die1.png" id="dice10">
+        <img src="die1.png" id="dice11">
+        <img src="die1.png" id="dice12">
+    </div>
+    <p><input type="button" id="roll" value="Roll Dice" onclick="play()"></p>
+    <div>
+        <table border="1">
+            <th colspan="3">Dice Rolling Frequencies</th>
+            <tr>
+                <td>Face</td>
+                <td>Frequencey</td>
+                <td>Percent</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td id="fr1">0</td>
+                <td id="per1">0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td id="fr2">0</td>
+                <td id="per2">0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td id="fr3">0</td>
+                <td id="per3">0</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td id="fr4">0</td>
+                <td id="per4">0</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td id="fr5">0</td>
+                <td id="per5">0</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td id="fr6">0</td>
+                <td id="per6">0</td>
+            </tr>
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+        var fr1 = 0, fr2 = 0, fr3 = 0, fr4 = 0, fr5 = 0, fr6 = 0, total = 0;
+        
+        function play(){
+            total += 12;
+            for(let i = 1 ; i < 13 ; i++){
+                var spot = Math.floor(Math.random() * 6 + 1);
+                document.getElementById('dice' + i).setAttribute('src', 'die' + spot + '.png');
+                switch(spot){
+                    case 1:
+                        fr1++;
+                        var fr = document.getElementById('fr1');
+                        fr.textContent = fr1;
+                        var per = document.getElementById('per1');
+                        per.textContent = Math.floor(fr1 / total * 10000) / 100;
+                        break;
+                    case 2:
+                        fr2++;
+                        var fr = document.getElementById('fr2');
+                        fr.textContent = fr2;
+                        var per = document.getElementById('per2');
+                        per.textContent = Math.floor(fr2 / total * 10000) / 100;
+                        break;
+                    case 3:
+                        fr3++;
+                        var fr = document.getElementById('fr3');
+                        fr.textContent = fr3;
+                        var per = document.getElementById('per3');
+                        per.textContent = Math.floor(fr3 / total * 10000) / 100;
+                        break;
+                    case 4:
+                        fr4++;
+                        var fr = document.getElementById('fr4');
+                        fr.textContent = fr4;
+                        var per = document.getElementById('per4');
+                        per.textContent = Math.floor(fr4 / total * 10000) / 100;
+                        break;
+                    case 5:
+                        fr5++;
+                        var fr = document.getElementById('fr5');
+                        fr.textContent = fr5;
+                        var per = document.getElementById('per5');
+                        per.textContent = Math.floor(fr5 / total * 10000) / 100;
+                        break;
+                    case 6:
+                        fr6++;
+                        var fr = document.getElementById('fr6');
+                        fr.textContent = fr6;
+                        var per = document.getElementById('per6');
+                        per.textContent = Math.floor(fr6 / total * 10000) / 100;
+                        break;
+                }
+            }
+        }
+
+        function enter(){
+            if(event.keyCode == 13){
+                document.getElementById('roll').click();
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
+
+</body>
+</html>
